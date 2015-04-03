@@ -1,2 +1,87 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<br/>
+<div class="jumbotron">
+  <h1 id='index-title'>Welcome to <span id='bookmarkthis-index-title'>BookmarkThis!</span></h1>
+  <p id='index-description'>BookmarkThis! is a web application that allow users to save and share their favorite links they found on the Web!</p>
+  <p>
+      <%= link_to "Sign in", new_user_session_path, class: 'btn btn-primary' %> or
+      <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %> today!
+  </p>
+</div>
+ 
+<div class="row">
+  <div class="col-md-4">
+    <h2><span id='index-keywords'>Save</span> links</h2>
+    <p>BookmarkThis! allows you to save your favorite links you have found on the Web!</p>
+  </div>
+  <div class="col-md-4">
+    <h2><span id='index-keywords'>Share</span> links</h2>
+    <p>You can share your saved links to your friends and to the world! (or keep them private)</p>
+  </div>
+  <div class="col-md-4">
+    <h2><span id='index-keywords'>Discover</span> links</h2>
+    <p>Discover interesting links about a wide range of topics, so you'll always have something interesting to hunt!</p>
+  </div>
+</div>
+ 
+<div class="row">
+  <div class="col-md-4">
+    <h2><span id='index-keywords'>Save-for-later</span> articles</h2>
+    <p>Save your favorite articles and read-them later, you won't miss another great reading!</p>
+  </div>
+  <div class="col-md-4">
+    <h2><span id='index-keywords'>Organize</span> your articles</h2>
+    <p>Organize your saved articles with tags, so you'll always find what you're looking for.</p>
+  </div>
+  <div class="col-md-4">
+    <h2><span id='index-keywords'>Star</span> your articles</h2>
+    <p>Mark your best articles with a star, and order those by keeping them in your 'starred' section!</p>
+  </div>
+</div>
+ 
+</br>
+ 
+<div class="row">
+    <div class="page-header">
+     <h2 id='index-sub-headers'>What makes <span id='bookmarkthis-index-title'>BookmarkThis!</span> different? <small>Links + articles in one place!</small></h2>
+    </div>
+</div>
+ 
+ 
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+<!--       <img src="..." alt="..."> -->      
+      <div class="caption">
+        <h3>Browse between links and articles</h3>
+        <p>We understand that there are occasions when you want to store a link, and that sometimes, you just want to save an article.</p>
+      </div>
+    </div>
+  </div>
+ 
+    <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+<!--       <img src="..." alt="..."> -->      
+      <div class="caption">
+        <h3>Access your links and articles, all in one place!</h3>
+        <p>Store links, save-for-later articles, we understand the difference, links != articles.</p>
+      </div>
+    </div>
+  </div>
+ 
+      <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+<!--       <img src="..." alt="..."> -->      
+      <div class="caption">
+        <h3>Awesome reading experience and extensions/apps</h3>
+        <p>Browser extensions + mobile apps coming soon, be patience!</p>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+ 
+</br>
+ 
+<h4 id='index-footer'>
+  <p>Use <span id='bookmarkthis-index-title'>BookmarkThis!</span> to regain <span id='index-keywords'>control of your digital life</span>, <%= link_to "join now!", new_user_registration_path, class: 'index-footer-join-link'%></p>
+</h4>
