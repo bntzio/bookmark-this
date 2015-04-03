@@ -34,6 +34,11 @@ group :development do
   gem 'binding_of_caller'
 end
 
+# gems used for production and development
+group :production, :development do
+  gem 'puma'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
