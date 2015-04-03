@@ -39,6 +39,9 @@ group :production, :development do
   gem 'puma'
 end
 
+# bootstrap for styling
+gem 'bootstrap-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

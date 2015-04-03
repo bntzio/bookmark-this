@@ -1,0 +1,96 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+a{
+  color: #ff4a50;  
+}
+ 
+a:hover{
+  text-decoration: none;
+  color: #e54248;
+}
+ 
+#index-title{
+  color: black;
+}
+ 
+#bookmarkthis-index-title{
+  color: #ff4a50;
+  text-decoration: underline;
+}
+ 
+#index-description{
+  color: #605c5c;
+}
+ 
+#index-keywords{
+  color: #ff4a50;
+}
+ 
+#index-sub-headers{
+  text-align: center;
+}
+ 
+#index-footer{
+  text-align:center;
+}
+ 
+.index-footer-join-link{
+  color: black;
+}
+ 
+.index-footer-join-link:hover{
+  color: black;
+  font-weight: bold;
+}
+ 
+.nav-pills > li > a{
+  color: #FF5C61;
+}
+ 
+.nav-pills > li > a:hover{
+  background: #ff4a50;
+  color: white;
+}
+ 
+.user-info{
+   margin-top: 9px;
+}
+ 
+.nav{
+   margin-top: 5px;
+}
+ 
+.btn-primary{
+  background: #FF5C61;
+  border: none;
+}
+ 
+.btn-primary:hover{
+  background: #e54248;
+}
+ 
+.btn-success{
+  background: #FF5C61;
+  border: none;
+}
+ 
+.btn-success:hover{
+  background: #e54248;
+}
