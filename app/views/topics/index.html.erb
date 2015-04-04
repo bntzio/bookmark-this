@@ -1,0 +1,10 @@
+<h1 align='center'>All Bookmarks</h1>
+<hr>
+<% @topics.each do |topic| %>
+  <%= link_to topic.title, topic_path(topic.id), class: 'btn btn-primary' %></br>
+  <% @bookmarks.each do |bookmark| %>
+    <%= link_to bookmark.url, "http://#{bookmark.url}", class: 'btn btn-warning' %>
+  <% end %>
+</br>
+</br>
+<% end %>
