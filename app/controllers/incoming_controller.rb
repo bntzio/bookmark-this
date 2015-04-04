@@ -3,11 +3,21 @@ class IncomingController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:sender])
-    @topic = Topic.create(title: params[:subject], user_id: @user.id)
-    @url = params["body-plain"]
-    @bookmark = Bookmark.create(url: @url, topic_id: @topic.id)
+    @topic = Topic.find_by(title: params[:subject])
 
-    puts "#{@user}, #{@topic}, #{@url}"
+    @url = params["body-plain"]
+
+    if @user.nil?
+      @user = User.new(email: params[:sender], password: "temp0rary_passw0rd")
+      @user.skip_confirmation!
+      @user.save!
+    end
+
+    if @topic.nil?
+      @topic = @user.topics.create(title: params[:subject])
+    end
+
+    @bookmark = @topic.bookmarks.create(url: @url)
 
     head 200
   end
