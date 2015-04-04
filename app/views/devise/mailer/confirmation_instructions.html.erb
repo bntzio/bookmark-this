@@ -1,5 +1,15 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome to <b>BookmarkThis!</b> <%= @user.name %>!</p>
+
+<p>
+  We're very happy to have you, our mission is to simplify people's lives and make them more productive on-the-go.
+  BookmarkThis! Allows you to <i>save</i> and <i>share</i> the favorite <i>links</i> you find on the Web in a very efficient manner, in that way, you can have everything organized and saved-for-later, never miss a link!
+</p>
 
 <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%= link_to 'Confirm your account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>We wish you the best, we hope you enjoy BookmarkThis! and <b>regain control of your digital life!</b></p>
+
+<p><i>Sincerely,</i></p>
+<p>Your friend <%= link_to 'bntz.io', "https://twitter.com/@bntzio" %></p>
