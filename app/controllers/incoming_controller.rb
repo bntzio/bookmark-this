@@ -1,0 +1,2 @@
+class IncomingController < ApplicationController
+end
