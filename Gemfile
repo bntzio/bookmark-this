@@ -48,6 +48,9 @@ gem 'devise'
 # figaro to handle sensitive information
 gem 'figaro', '1.0'
 
+# faker gem to create fake data (seed database)
+gem 'faker'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
