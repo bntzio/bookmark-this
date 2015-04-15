@@ -1,4 +1,4 @@
-<h2>All Bookmarks</h2>
+<h2 id="page-title">All Bookmarks</h2>
 
 <div class="row">
   <div class="col-md-8">
@@ -8,5 +8,8 @@
         <%= link_to "#{bookmark.url}", "http://#{bookmark.url}", target: "_blank" %></br>
       <% end %>
     <% end %>
+  </div>
+  <div class="col-md-4">
+    <%= link_to "New Topic", new_topic_path, class: 'btn btn-primary' %>
   </div>
 </div>

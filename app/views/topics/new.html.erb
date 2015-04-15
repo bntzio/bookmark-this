@@ -1,2 +1,24 @@
-<h1>Topics#new</h1>
-<p>Find me in app/views/topics/new.html.erb</p>
+<h1>New Topic</h1>
+ 
+ <div class="row">
+   <div class="col-md-4">
+     <p>Guidelines for topics</p>
+     <ul>
+       <li>Make sure it rhymes.</li>
+       <li>Don't use the letter "A".</li>
+       <li>The incessant use of hashtags will get you banned.</li>
+     </ul>
+   </div>
+   <div class="col-md-8">
+     <%= form_for @topic do |t| %>
+       <div class="form-group">
+         <%= t.label :title %>
+         <%= t.text_field :title, class: 'form-control', placeholder: "Enter topic title" %>
+       </div>
+       <div class="form-group">
+        <%= t.submit "Save", class: 'btn btn-primary' %>
+        <%= link_to "Rewind", :back, class: 'btn btn-link' %>
+       </div>
+     <% end %>
+   </div>
+ </div>

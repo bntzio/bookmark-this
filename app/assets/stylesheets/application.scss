@@ -51,6 +51,14 @@ a:hover{
   text-align:center;
 }
  
+#page-title{
+  color: #605c5c;
+}
+
+#login-message{
+  color: #605c5c;
+}
+
 .index-footer-join-link{
   color: black;
 }
@@ -86,11 +94,27 @@ a:hover{
   background: #e54248;
 }
  
-.btn-success{
-  background: #FF5C61;
-  border: none;
+.btn-default{
+  color: #ff4a50;
 }
  
-.btn-success:hover{
-  background: #e54248;
+.btn-default:hover{
+  color: #e54248;
+}
+
+.btn-danger{
+  background: #ff1017;
+  border: none;
+}
+
+.btn-danger:hover{
+  background: #c30006;
+}
+
+.btn-link{
+  color: #ff4a50;
+}
+
+.btn-link:hover{
+  color: #e54248;
 }
