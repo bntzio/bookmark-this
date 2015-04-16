@@ -10,11 +10,15 @@
 <body>
   <div class="container">
     <ul class="nav nav-pills">
-      <li><%= link_to "BookmarkThis!", welcome_index_path %></li>
+      <% if current_user %>
+        <li><%= link_to "Bookmarks", topics_path %></li>
+      <% else %>
+        <li><%= link_to "BookmarkThis!", welcome_index_path %></li>
+      <% end %>
       <li><%= link_to "About", welcome_about_path %></li>
       <div class="pull-right user-info">
         <% if current_user %>
-          <span id="login-message">Hello <%= link_to "#{current_user.email}", edit_user_registration_path %>!</span> <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          <span id="login-message">Hello <%= link_to "#{current_user.name}", edit_user_registration_path %>!</span> <%= link_to "Logout", destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to "Sign In", new_user_session_path %> or
           <%= link_to "Sign Up", new_user_registration_path %>

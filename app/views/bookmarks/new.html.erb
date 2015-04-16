@@ -1,8 +1,8 @@
-<h1>Edit <%= @topic.title %></h1>
+<h1>New Bookmark</h1>
  
  <div class="row">
    <div class="col-md-4">
-     <p>Guidelines for topics</p>
+     <p>Guidelines for bookmarks</p>
      <ul>
        <li>Make sure it rhymes.</li>
        <li>Don't use the letter "A".</li>
@@ -10,10 +10,10 @@
      </ul>
    </div>
    <div class="col-md-8">
-     <%= form_for @topic do |t| %>
+     <%= form_for [@topic, @bookmark] do |t| %>
        <div class="form-group">
-         <%= t.label :title %>
-         <%= t.text_field :title, class: 'form-control', placeholder: "Enter topic title" %>
+         <%= t.label :url %>
+         <%= t.text_field :url, class: 'form-control', placeholder: "Enter bookmark url" %>
        </div>
        <div class="form-group">
         <%= t.submit "Save", class: 'btn btn-primary' %>

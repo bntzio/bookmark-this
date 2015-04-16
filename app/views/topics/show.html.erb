@@ -1,15 +1,17 @@
-<h2 id="page-title"><%= @topic.title %></h2>
+<span class="topic-title"><%= @topic.title %></span><%= link_to "  edit", edit_topic_path %> | <%= link_to "destroy", @topic, method: :delete, data: { confirm: 'Are you sure you want to delete this topic? Deleting a topic will delete all associated bookmarks' } %>
 
 <div class="row">
   <div class="col-md-8">
-    <% @topic.bookmarks.each do |topic| %>
-      <%= link_to topic.url, "http://#{topic.url}", target: "_blank" %></br>
+    <% if @topic.bookmarks.count >= 1 %>
+      <% @topic.bookmarks.each do |my_bookmark| %>
+        <%= link_to my_bookmark.url, "http://#{my_bookmark.url}", target: "_blank" %><%= " bookmark id: #{my_bookmark.id} " %><%= link_to "edit", edit_topic_bookmark_path(@topic, my_bookmark) %> | <%= link_to "destroy", [@topic, my_bookmark], method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' } %></br>
+      <% end %>
+    <% else %>
+      <p>No bookmarks! :(</p>
     <% end %>
   </div>
   <div class="col-md-4">
-    
-    <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-default' %>
-    <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic? Deleting a topic will delete all associated bookmarks' } %>
+    <%= link_to "Add a new Bookmark", new_topic_bookmark_path(@topic, @bookmark), class: 'btn btn-primary' %>
     <%= link_to "Go Back", topics_path, class: 'btn btn-link' %>
   </div>
 </div>
