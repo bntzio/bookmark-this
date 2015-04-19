@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
   resources :topics do
-    resources :bookmarks, except: [:index]
+    resources :bookmarks, only: [:create, :new]
   end
 
-  resources :bookmarks do
+  resources :bookmarks, only: [:edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
 

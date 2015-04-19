@@ -1,9 +1,6 @@
 class BookmarksController < ApplicationController
-  def show
-    @topic = Topic.find(params[:topic_id])
-    @bookmark = Bookmark.find(params[:id])
-  end
-
+  before_action :authenticate_user!
+  
   def new
     @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.new
@@ -29,14 +26,13 @@ class BookmarksController < ApplicationController
   end
 
   def edit
-   @topic = Topic.find(params[:topic_id])
+   
    @bookmark = Bookmark.find(params[:id])
 
    authorize @bookmark
   end
 
   def update
-    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
 
     name = @bookmark.url
@@ -46,7 +42,7 @@ class BookmarksController < ApplicationController
     if @bookmark.update_attributes(bookmark_params)
       new_name = @bookmark.url 
       flash[:notice] = "\"#{name}\" is now \"#{new_name}\"."
-      redirect_to @topic
+      redirect_to topics_path
     else
       flash[:error] = "Error updating bookmark. Please try again."
       render :edit
@@ -54,7 +50,6 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
 
     name = @bookmark.url
