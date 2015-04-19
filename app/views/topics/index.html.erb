@@ -5,7 +5,8 @@
     <% @topics.each do |topic| %>
       <h4><%= link_to "##{topic.title}", topic_path(topic.id) %></br></h4>
       <% topic.bookmarks.each do |bookmark| %>
-        <%= link_to "#{bookmark.url}", "http://#{bookmark.url}", target: "_blank" %></br>
+        <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+        <%= link_to "#{bookmark.url}", "http://#{bookmark.url}", target: "_blank" %></br></br>
       <% end %>
     <% end %>
   </div>
