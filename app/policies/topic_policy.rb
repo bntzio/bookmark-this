@@ -1,6 +1,6 @@
 class TopicPolicy < ApplicationPolicy
   def update?
-    user.present? && user.admin?
+    user.present? && (user.admin?)
   end
 
   def edit?

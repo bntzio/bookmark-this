@@ -24,7 +24,11 @@
        <div class="tab-pane active" id="bookmarks">
          <% @user_bookmarks.each do |bookmark| %>
           <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-          <%= link_to "#{bookmark.url}", "http://#{bookmark.url}", target: "_blank" %></br>
+          <%= link_to "#{bookmark.url}", "http://#{bookmark.url}", target: "_blank" %>
+          <% if policy(bookmark).update? %>
+          &nbsp;<i><%= link_to "edit", edit_bookmark_path(bookmark) %></i> /
+          <i><%= link_to "destroy", [bookmark], method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' } %></i></br>
+        <% end %>
          <% end %>
        </div>
        <div class="tab-pane" id="likes">

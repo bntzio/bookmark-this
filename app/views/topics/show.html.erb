@@ -1,5 +1,5 @@
 <span class="topic-title"><%= @topic.title %></span>
-  <% if policy(Topic.new).update? %>
+  <% if policy(Topic.new).edit? %>
     <i>&nbsp;<%= link_to "  edit", edit_topic_path %></i> / <i><%= link_to "destroy", @topic, method: :delete, data: { confirm: 'Are you sure you want to delete this topic? Deleting a topic will delete all associated bookmarks' } %></i>
   <% end %>
 
@@ -9,7 +9,7 @@
       <% @topic.bookmarks.each do |my_bookmark| %>
         <%= render partial: 'likes/like', locals: { bookmark: my_bookmark } %>
         <%= link_to my_bookmark.url, "http://#{my_bookmark.url}", target: "_blank" %>
-        <% if policy(Topic.new).update? %>
+        <% if policy(my_bookmark).update? %>
           &nbsp;<i><%= link_to "edit", edit_bookmark_path(my_bookmark) %></i> / <i><%= link_to "destroy", my_bookmark, method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' } %></i>
         <% end %>
       </br>
