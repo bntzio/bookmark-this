@@ -1,0 +1,38 @@
+<div class="row">
+   <div class="col-md-8">
+     <div class="media">
+       <div class="media-body">
+         <h2 class="media-heading"><%= @user.name %></h2>
+         <small>
+           <%= pluralize(@user.bookmarks.count, 'bookmark') %>,
+           <%= pluralize(@user.likes.count, 'like') %>
+         </small>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
+ </br>
+
+<div class="row">
+   <div class="tabbable tabs-left">
+     <ul class="nav nav-tabs">
+       <li class="active"><a href="#bookmarks" data-toggle="tab">Bookmarks</a></li>
+       <li><a href="#likes" data-toggle="tab">Likes</a></li>
+     </ul>
+     <div class="tab-content">
+       <div class="tab-pane active" id="bookmarks">
+         <% @user_bookmarks.each do |bookmark| %>
+          <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+          <%= link_to "#{bookmark.url}", "http://#{bookmark.url}", target: "_blank" %></br>
+         <% end %>
+       </div>
+       <div class="tab-pane" id="likes">
+         <% @liked_bookmarks.each do |like| %>
+          <%= render partial: 'likes/like', locals: { bookmark: like.bookmark } %>
+          <%= link_to "#{like.bookmark.url}", "http://#{like.bookmark.url}", target: "_blank" %></br>
+         <% end %>
+       </div>
+     </div>
+   </div>
+ </div>
