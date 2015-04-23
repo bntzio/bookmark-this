@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
+  get 'users/profile'
 
   resources :topics do
     resources :bookmarks, only: [:create, :new]
