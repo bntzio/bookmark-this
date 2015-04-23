@@ -129,3 +129,24 @@ a:hover{
   font-size: 18px;
   font-weight: bold;
 }
+
+.thumbnail{
+  float: left;
+  width: 252px;
+  border: 1px solid #ff4a50;
+  margin: 0 15px 15px 0;
+  padding: 5px;
+}
+
+.thumbnail-index{
+  float: left;
+  border-radius: 5px;
+  width: 252px;
+  border: 1px solid #ff4a50;
+  margin: 0 15px 15px 0;
+  padding: 5px;
+}
+
+.edit-destroy-link:hover{
+  text-decoration: underline;
+}
