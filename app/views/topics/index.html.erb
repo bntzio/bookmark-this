@@ -11,8 +11,8 @@
     <b><%= link_to "##{topic.title}", topic_path(topic.id) %></b>
     <% if policy(Topic.new).edit? %>
       <i>&nbsp;<%= link_to "  edit", edit_topic_path(topic.id) %></i> / <i><%= link_to "destroy", topic, method: :delete, data: { confirm: 'Are you sure you want to delete this topic? Deleting a topic will delete all associated bookmarks' } %></i>
-    </br>
     <% end %>
+    </br>
       <% topic.bookmarks.each do |bookmark| %>
         <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
         <%= link_to "#{bookmark.url}", "#{bookmark.url}", target: "_blank" %>

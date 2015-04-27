@@ -22,8 +22,8 @@
      </ul>
      <div class="tab-content">
        <div class="tab-pane active" id="bookmarks">
+       </br>
          <% @user_bookmarks.each do |bookmark| %>
-          </br>
           <div class="thumbnail">
             <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
             <% if display("#{bookmark.url}").title %>
@@ -47,8 +47,8 @@
          <% end %>
        </div>
        <div class="tab-pane" id="likes">
-         <% @liked_bookmarks.each do |like| %>
        </br>
+         <% @liked_bookmarks.each do |like| %>
           <div class="thumbnail">
             <%= render partial: 'likes/like', locals: { bookmark: like.bookmark } %>
             <% if display("#{like.bookmark.url}").title %>
