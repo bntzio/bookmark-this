@@ -1,4 +1,4 @@
-<h2 id="page-title">Recent Bookmarks</h2>
+<h2 id="page-title">All Topics</h2>
 <% if policy(Topic.new).create? %>
  <%= link_to "New Topic", new_topic_path, class: 'btn btn-primary' %>
 <% end %>
@@ -8,21 +8,21 @@
 <div class="row">
   <div class="col-md-12">
     <% @topics.each do |topic| %>
+    <b><%= link_to "##{topic.title}", topic_path(topic.id) %></b>
+    <% if policy(Topic.new).edit? %>
+      <i>&nbsp;<%= link_to "  edit", edit_topic_path(topic.id) %></i> / <i><%= link_to "destroy", topic, method: :delete, data: { confirm: 'Are you sure you want to delete this topic? Deleting a topic will delete all associated bookmarks' } %></i>
+    </br>
+    <% end %>
       <% topic.bookmarks.each do |bookmark| %>
-          <div class="thumbnail-index">
-            <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-            <b><%= display("#{bookmark.url}").title %></br></b>
-            <%= link_to "#{bookmark.url}", "#{bookmark.url}", target: "_blank" %>
-            <% if policy(bookmark).update? %>
+        <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+        <%= link_to "#{bookmark.url}", "#{bookmark.url}", target: "_blank" %>
+        <% if policy(bookmark).update? %>
             &nbsp;<i><%= link_to "edit", edit_bookmark_path(bookmark), class: 'edit-destroy-link' %></i> /
-          <i><%= link_to "destroy", [bookmark], method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' }, class: 'edit-destroy-link' %></i></br>
-            <% end %>
-            <%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "240").html_safe %>
-            <hr>
-            <%= link_to "##{bookmark.topic.title}", topic_path(topic.id) %>
-        </div>
+            <i><%= link_to "destroy", [bookmark], method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' }, class: 'edit-destroy-link' %></i>
+        </br>
+        <% end %>
       <% end %>
     <% end %>
+    <%= will_paginate @topics %>
   </div>
-  
 </div>

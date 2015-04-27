@@ -11,10 +11,11 @@
   <div class="container">
     <ul class="nav nav-pills">
       <% if current_user %>
-        <li><%= link_to "Bookmarks", topics_path %></li>
+        <li><%= link_to "Bookmarks", bookmarks_path %></li>
       <% else %>
         <li><%= link_to "BookmarkThis!", welcome_index_path %></li>
       <% end %>
+      <li><%= link_to "Topics", topics_path %></li>
       <li><%= link_to "About", welcome_about_path %></li>
       <div class="pull-right user-info">
         <% if current_user %>

@@ -1,0 +1,25 @@
+<h2 id="page-title">Latest Bookmarks</h2>
+<hr>
+
+<% @bookmarks.each do |bookmark| %>
+  <div class="thumbnail-index">
+  <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
+  <% if display("#{bookmark.url}").title %>
+    <b><%= display("#{bookmark.url}").title %></b></br>
+  <% else %>
+    <b class="no-title-preview">Bookmark title preview is not available</b></br>
+  <% end %>
+  <%= link_to "#{bookmark.url}", "http://#{bookmark.url}", target: "_blank" %>
+    <% if policy(bookmark).update? %>
+      &nbsp;<i><%= link_to "edit", edit_bookmark_path(bookmark), class: 'edit-destroy-link' %></i> /
+      <i><%= link_to "destroy", [bookmark], method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' }, class: 'edit-destroy-link' %></i></br>
+    <% end %>
+  <% if display("#{bookmark.url}").thumbnail_url %>
+    <%= image_tag(display("#{bookmark.url}").thumbnail_url, size: "240").html_safe %>
+  <% else %>
+    <%= image_tag("no-preview.png", size: "240", :alt => "No Preview Available") %>
+  <% end %>
+  <hr>
+  <%= link_to "#{bookmark.topic.title}", bookmark.topic %>
+  </div>
+<% end %>

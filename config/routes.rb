@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:create, :new]
   end
 
-  resources :bookmarks, only: [:edit, :update, :destroy] do
+  resources :bookmarks, only: [:index, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
 

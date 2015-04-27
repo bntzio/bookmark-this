@@ -1,5 +1,9 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
+
+  def index
+    @bookmarks = Bookmark.all.limit(25)
+  end
   
   def new
     @topic = Topic.find(params[:topic_id])
