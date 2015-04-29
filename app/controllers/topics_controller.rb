@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @topics = Topic.paginate(page: params[:page], per_page: 25)
+    @topics = Topic.paginate(page: params[:page], per_page: 100)
   end
 
   def show
