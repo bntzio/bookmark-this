@@ -2,7 +2,10 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bookmarks = Bookmark.all.limit(25)
+    @bookmarks = Bookmark.paginate(page: params[:page], per_page: 100)
+    @bookmarks.each do |f|
+      BookmarksWorker.perform_async(f.id)
+    end
   end
   
   def new

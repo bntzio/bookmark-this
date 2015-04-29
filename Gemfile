@@ -63,6 +63,9 @@ gem 'will_paginate', '~> 3.0.5'
 # friendly_id for readable URLs
 gem 'friendly_id'
 
+# sidekiq for efficient background processing
+gem 'sidekiq'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
