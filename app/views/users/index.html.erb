@@ -1,5 +1,9 @@
 <h2 id="page-title">Top 25 Users</h2>
 <hr>
 <% @users.each_with_index do |u, i| %>
-  <%= link_to "#{i + 1}. #{u.name}", u %></br>
+  <% if u.name? %>
+    <%= link_to "#{i + 1}. #{u.name}", u %></br>
+  <% else %>
+    <%= link_to "#{i + 1}. #{u.email}", u %></br>
+  <% end %>
 <% end %>

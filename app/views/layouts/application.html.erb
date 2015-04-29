@@ -22,7 +22,7 @@
       <li><%= link_to "About", welcome_about_path %></li>
       <div class="pull-right user-info">
         <% if current_user %>
-          <span id="login-message">Hello <%= link_to (current_user.name || current_user.email), users_profile_path %>!</span>
+          <span id="login-message">Hello <% if current_user.name? %><%= link_to (current_user.name), users_profile_path %>!<% else %><%= link_to (current_user.email), users_profile_path %>!<% end %></span>
           <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>
             <span class="glyphicon glyphicon-user"></span>
           <% end %>
