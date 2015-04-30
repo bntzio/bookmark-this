@@ -19,8 +19,8 @@
         <% if policy(bookmark).update? %>
             &nbsp;<i><%= link_to "edit", edit_bookmark_path(bookmark), class: 'edit-destroy-link' %></i> /
             <i><%= link_to "destroy", [bookmark], method: :delete, data: { confirm: 'Are you sure you want to delete this bookmark?' }, class: 'edit-destroy-link' %></i>
-        </br>
         <% end %>
+        </br>
       <% end %>
     <% end %>
     <%= will_paginate @topics %>
